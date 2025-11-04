@@ -39,7 +39,17 @@
             height: 3px;
             background-color: var(--primary-color);
         }
-        /* 파트너 카드 스타일은 style.css의 것을 그대로 사용합니다 */
+        /* Logo 灰色滤镜及悬停效果 */
+        .partner-card .logo-wrapper img {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .partner-card:hover .logo-wrapper img {
+            filter: grayscale(0%);
+        }
+        .partner-card .logo-wrapper {
+             padding: 10px; /* 给Logo一些呼吸空间 */
+        }
     </style>
 </head>
 <body>
@@ -71,10 +81,10 @@
                 <div class="partner-category">
                     <h3>주요 정부 및 공공기관</h3>
                     <div class="partner-grid">
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="외교부 로고"></div><p>대한민국 외교부</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="주한 중국 대사관 로고"></div><p>주한 중국 대사관</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="중국 외교부 로고"></div><p>중국 외교부</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="중국 교육부 로고"></div><p>중국 교육부</p></a>
+                        <a href="https://www.mofa.go.kr/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Logo_of_the_Ministry_of_Foreign_Affairs_of_the_Republic_of_Korea.svg" alt="대한민국 외교부 로고"></div><p>대한민국 외교부</p></a>
+                        <a href="http://kr.china-embassy.gov.cn/kor/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/National_Emblem_of_the_People%27s_Republic_of_China.svg" alt="주한 중국 대사관 로고"></div><p>주한 중국 대사관</p></a>
+                        <a href="https://www.fmprc.gov.cn/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/National_Emblem_of_the_People%27s_Republic_of_China.svg" alt="중국 외교부 로고"></div><p>중국 외교부</p></a>
+                        <a href="http://www.moe.gov.cn/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/National_Emblem_of_the_People%27s_Republic_of_China.svg" alt="중국 교육부 로고"></div><p>중국 교육부</p></a>
                     </div>
                 </div>
 
@@ -82,12 +92,12 @@
                 <div class="partner-category">
                     <h3>대표 협력 대학</h3>
                     <div class="partner-grid">
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="라시에라대학교 로고"></div><p>라시에라대학교 (La Sierra)</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="남일리노이주립대학교 로고"></div><p>남일리노이주립대학교 (SIUE)</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="노스캐롤라이나주립대학교 로고"></div><p>노스캐롤라이나주립대학교 (UNCG)</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="북경대학교 로고"></div><p>북경대학교</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="청화대학교 로고"></div><p>청화대학교</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="절강대학교 로고"></div><p>절강대학교</p></a>
+                        <a href="https://lasierra.edu/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/58/La_Sierra_University_logo.svg/200px-La_Sierra_University_logo.svg.png" alt="라시에라대학교 로고"></div><p>라시에라대학교 (La Sierra)</p></a>
+                        <a href="https://www.siue.edu/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/SIUE_Wordmark.svg/300px-SIUE_Wordmark.svg.png" alt="남일리노이주립대학교 로고"></div><p>남일리노이주립대학교 (SIUE)</p></a>
+                        <a href="https://www.uncg.edu/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/UNC_Greensboro_Spartans_logo.svg/220px-UNC_Greensboro_Spartans_logo.svg.png" alt="노스캐롤라이나주립대학교 로고"></div><p>노스캐롤라이나주립대학교 (UNCG)</p></a>
+                        <a href="https://www.pku.edu.cn/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Peking_University_logo.svg/160px-Peking_University_logo.svg.png" alt="북경대학교 로고"></div><p>북경대학교</p></a>
+                        <a href="https://www.tsinghua.edu.cn/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/96/Tsinghua_University_logo.svg/160px-Tsinghua_University_logo.svg.png" alt="청화대학교 로고"></div><p>청화대학교</p></a>
+                        <a href="https://www.zju.edu.cn/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Zhejiang_University_logo.svg/180px-Zhejiang_University_logo.svg.png" alt="절강대학교 로고"></div><p>절강대학교</p></a>
                     </div>
                 </div>
 
@@ -95,10 +105,10 @@
                 <div class="partner-category">
                     <h3>MOU 체결 기업 및 기관</h3>
                     <div class="partner-grid">
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="다인리더스 로고"></div><p>(주)다인리더스</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="PCNC 로고"></div><p>(주)PCNC</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="해오름커뮤니케이션즈 로고"></div><p>(주)해오름커뮤니케이션즈</p></a>
-                        <a href="#" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="../images/partners/placeholder.png" alt="몽골 MIAT항공 로고"></div><p>몽골 MIAT항공</p></a>
+                        <a href="http://www.dainleaders.com/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://www.dainleaders.com/images/common/logo.png" alt="다인리더스 로고"></div><p>(주)다인리더스</p></a>
+                        <a href="http://www.pcnc.co.kr/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="http://www.pcnc.co.kr/pcnc/wp-content/uploads/2021/08/PCNC_CI_blue-1.png" alt="PCNC 로고" style="max-width: 120px;"></div><p>(주)PCNC</p></a>
+                        <a href="http://www.haeorum.com/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="http://www.haeorum.com/images/common/logo_black.png" alt="해오름커뮤니케이션즈 로고" style="max-width: 150px;"></div><p>(주)해오름커뮤니케이션즈</p></a>
+                        <a href="https://www.miat.com/" target="_blank" class="partner-card"><div class="logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/MIAT_Mongolian_Airlines_logo.svg/260px-MIAT_Mongolian_Airlines_logo.svg.png" alt="몽골 MIAT항공 로고"></div><p>몽골 MIAT항공</p></a>
                     </div>
                 </div>
             </div>
