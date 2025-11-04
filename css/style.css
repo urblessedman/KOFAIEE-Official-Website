@@ -3,7 +3,7 @@
 
 :root {
     --primary-color: #0A2240; --accent-color: #0056b3; --text-color: #333333; --text-light: #555555; --background-color: #ffffff; --light-gray: #f8f9fa; --border-color: #dee2e6;
-    --font-heading: 'Gowun Dodum', serif; --font-body: 'Noto Sans KR', sans-serif;
+    --font-heading: 'Gowun+Dodum', serif; --font-body: 'Noto Sans KR', sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: var(--font-body); line-height: 1.8; color: var(--text-color); background-color: var(--background-color); display: flex; flex-direction: column; min-height: 100vh; }
@@ -82,69 +82,4 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .purpose-intro .lead { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 25px; line-height: 1.7; text-align: center; }
 .goals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 .goal-card { background-color: var(--light-gray); border-radius: 12px; padding: 30px; }
-.goal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-.goal-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
-
-/* --- 조직도 페이지 스타일 (Google Charts 최종 솔루션) --- */
-#chart_div { width: 100%; max-width: 900px; margin: 0 auto; } /* 수정됨 */
-.google-visualization-orgchart-node {
-    border: 1px solid var(--border-color) !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-    background: white !important;
-    font-family: var(--font-body) !important;
-    padding: 15px 25px !important; /* 수정됨 */
-    font-size: 1rem !important;
-    color: var(--text-color) !important;
-    line-height: 1.5 !important;
-}
-.google-visualization-orgchart-node-medium {
-    font-weight: 700 !important;
-    background: var(--light-gray) !important;
-}
-.google-visualization-orgchart-node-large {
-    background: var(--primary-color) !important;
-    color: white !important;
-    font-weight: 700 !important;
-    padding: 18px 40px !important; /* 수정됨 */
-    font-size: 1.2rem !important;
-}
-
-/* --- 푸터 스타일 --- */
-footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font-size: 0.9rem; line-height: 1.8; margin-top: auto; }
-.footer-main { display: flex; justify-content: space-between; gap: 40px; margin-bottom: 50px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 30px; }
-.footer-col { flex: 1; }
-.footer-col h4 { color: white; font-size: 1.1rem; margin-bottom: 20px; }
-.footer-col.about .footer-logo { height: 60px; margin-bottom: 15px; }
-.footer-col.about .corp-name { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: #e0e0e0; margin: 0; }
-.footer-col.about .ceo-name { font-family: var(--font-body); font-size: 0.9rem; color: #c0c0c0; font-weight: 400; margin: 5px 0 0 0; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 10px; }
-.footer-col ul a { color: #a0a0a0; }
-.footer-col ul a:hover { color: white; }
-.footer-copyright { text-align: center; padding-top: 30px; border-top: 1px solid #333; font-size: 0.85rem; color: #777; max-width: 1200px; margin-left: auto; margin-right: auto; }
-
-/* --- 반응형 디자인 & 모바일 메뉴 --- */
-@media (max-width: 992px) {
-    .nav-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background-color: rgba(10, 34, 64, 0.98); flex-direction: column; display: flex; align-items: center; justify-content: center; transition: left 0.5s ease; }
-    .nav-menu.active { left: 0; }
-    .nav-menu > li { display: block; margin: 20px 0; text-align: center; }
-    .nav-menu a { color: white; font-size: 1.8rem; padding: 10px; }
-    .nav-menu > li .dropdown { display: none !important; }
-    .hamburger { display: block; position: relative; z-index: 1001; width: 30px; height: 25px; background: none; border: none; cursor: pointer; }
-    .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--primary-color); border-radius: 3px; position: absolute; transition: all 0.3s ease; }
-    .hamburger span:nth-child(1) { top: 0; } .hamburger span:nth-child(2) { top: 11px; } .hamburger span:nth-child(3) { bottom: 0; }
-    .hamburger.active span { background-color: white; }
-    .hamburger.active span:nth-child(1) { top: 11px; transform: rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
-    .mission-grid, .goals-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 768px) {
-    .logo-container span { display: none; }
-    .footer-main { flex-direction: column; text-align: center; }
-    .greetings-content { flex-direction: column-reverse; }
-    .greetings-profile { max-width: 250px; margin: 0 auto 30px auto; }
-    .signature { text-align: center; }
-}
-@media (max-width: 576px) { .mission-grid, .goals-grid { grid-template-columns: 1fr; } }
+.goal-card:hover { transform: translateY
