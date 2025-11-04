@@ -6,17 +6,23 @@
     <title>조직/조직도 - 한국국제교육교류우호협회</title>
     <meta name="description" content="한국국제교육교류우호협회의 조직 구성도입니다.">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../css/style.css?v=4.0"> <!-- 원본 CSS 파일 링크는 그대로 둡니다 -->
+    <link rel="stylesheet" href="../css/style.css?v=4.1"> <!-- Cache Busting -->
     <script src="../js/script.js" defer></script>
     
     <!-- Google Charts 라이브러리 로드 -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
-    <!-- ### 핵심 수정 사항 ### -->
-    <!-- 조직도 스타일을 여기에 직접 추가하여 캐시 및 외부 파일 문제를 확실히 해결합니다. -->
+    <!-- ### 最终修复样式 ### -->
+    <!-- 这里的样式将解决所有布局问题 -->
     <style>
+        #chart_div {
+            /* 1. 让图表容器的内容（图表本身）居中显示 */
+            text-align: center;
+            /* 2. 当图表宽度超出屏幕时，允许容器内部出现水平滚动条，防止破坏页面布局 */
+            overflow-x: auto;
+        }
         .google-visualization-orgchart-node {
-            /* 이 스타일은 텍스트가 세로로 표시되는 것을 방지하고, 항상 가로로 표시되도록 강제합니다. */
+            /* 强制文本不换行，保持横向布局 */
             white-space: nowrap !important;
         }
     </style>
@@ -32,7 +38,6 @@
 
         // 조직도 데이터
         data.addRows([
-          // [{v:'id', f:'표시될 텍스트'}, '부모id'],
           [{v:'root', f:'한국국제교육교류우호협회'}, ''],
           [{v:'advisory', f:'고문단'}, 'root'],
           [{v:'forum1', f:'국제전략포럼'}, 'advisory'],
@@ -44,7 +49,7 @@
           [{v:'lab2', f:'한중21'}, 'forum2']
         ]);
 
-        // 각 노드에 배경색 등을 위한 클래스 적용
+        // 각 노드에 스타일 적용
         data.setRowProperty(0, 'style', 'node-large');
         data.setRowProperty(1, 'style', 'node-medium');
         data.setRowProperty(2, 'style', 'node-medium');
@@ -52,8 +57,6 @@
         data.setRowProperty(4, 'style', 'node-medium');
 
         var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
-        
-        // 'size' 옵션을 제거하여 차트가 CSS에 따라 크기를 자동으로 조절하도록 합니다.
         chart.draw(data, {allowHtml:true});
       }
     </script>
@@ -92,7 +95,33 @@
     </main>
     
     <footer>
-        <div class="footer-main"><div class="footer-col about"><img src="../images/logo-footer.png" alt="KOFAIEE Footer Logo" class="footer-logo"><p class="corp-name">사단법인 한국국제교육교류우호협회</p><p class="ceo-name">대표 : 강준영</p></div><div class="footer-col"><h4>바로가기</h4><ul><li><a href="greetings.html">협회 소개</a></li><li><a href="../activities/strategy-forum.html">협회 사업</a></li><li><a href="../partners/fields.html">협회 협력</a></li><li><a href="../news/announcements.html">협회 소식</a></li></ul></div><div class="footer-col"><h4>연락 정보</h4><ul><li>서울특별시 중랑구 사가정로 41길 6 (면목동)</li><li>Tel: 02-6471-8602</li><li>외교부 인가 비영리 사단법인(제603호)</li></ul></div></div><div class="footer-copyright"><p>Copyright 2024. KOREA INTERNATIONAL EDUCATION EXCHANGE AND FRIENDSHIP ASSOCIATION. All rights reserved.</p></div>
+        <div class="footer-main">
+            <div class="footer-col about">
+                <img src="../images/logo-footer.png" alt="KOFAIEE Footer Logo" class="footer-logo">
+                <p class="corp-name">사단법인 한국국제교육교류우호협회</p>
+                <p class="ceo-name">대표 : 강준영</p>
+            </div>
+            <div class="footer-col">
+                <h4>바로가기</h4>
+                <ul>
+                    <li><a href="greetings.html">협회 소개</a></li>
+                    <li><a href="../activities/strategy-forum.html">협회 사업</a></li>
+                    <li><a href="../partners/fields.html">협회 협력</a></li>
+                    <li><a href="../news/announcements.html">협회 소식</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>연락 정보</h4>
+                <ul>
+                    <li>서울특별시 중랑구 사가정로 41길 6 (면목동)</li>
+                    <li>Tel: 02-6471-8602</li>
+                    <li>외교부 인가 비영리 사단법인(제603호)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Copyright 2024. KOREA INTERNATIONAL EDUCATION EXCHANGE AND FRIENDSHIP ASSOCIATION. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
