@@ -85,25 +85,30 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .goal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 .goal-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
 
-/* --- 조직도 페이지 스타일 (CSS Grid 최종 솔루션) --- */
-.org-chart { display: flex; flex-direction: column; align-items: center; }
-.org-node { display: flex; align-items: center; justify-content: center; padding: 12px 25px; border-radius: 8px; font-family: var(--font-body); font-size: 1rem; font-weight: 500; border: 1px solid var(--border-color); background-color: white; min-height: 50px; }
-.org-node.root { background-color: var(--primary-color); color: white; font-weight: 700; padding: 15px 35px; }
-.org-node.root img { height: 24px; margin-right: 12px; filter: brightness(0) invert(1); }
-.org-node.advisory { background-color: var(--light-gray); }
-.org-level { display: flex; flex-direction: column; align-items: center; position: relative; }
-.org-level:not(:last-child)::after { content: ''; width: 2px; height: 30px; background-color: var(--border-color); }
-.org-branches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; position: relative; }
-.org-branches::before { content: ''; position: absolute; top: -32px; left: calc(100%/6); right: calc(100%/6); height: 2px; background-color: var(--border-color); }
-.org-branch { display: flex; flex-direction: column; align-items: center; position: relative; }
-.org-branch::before { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 30px; background-color: var(--border-color); }
-.org-branch .org-node { width: 100%; }
-.org-branch .node-children { display: flex; flex-direction: column; align-items: center; margin-top: 30px; position: relative; width: 100%; }
-.org-branch .node-children::before { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 30px; background-color: var(--border-color); }
-.org-branch .node-children .org-node { margin-top: 30px; }
-.node-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; position: relative; }
-.node-pair::before { content: ''; position: absolute; top: -30px; left: 25%; right: 25%; height: 2px; background-color: var(--border-color); }
-.node-pair .org-node::before { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 30px; background-color: var(--border-color); }
+/* --- 조직도 페이지 스타일 (Google Charts 최종 솔루션) --- */
+#chart_div { width: 100%; max-width: 900px; margin: 0 auto; } /* 수정됨 */
+.google-visualization-orgchart-node {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    background: white !important;
+    font-family: var(--font-body) !important;
+    padding: 15px 25px !important; /* 수정됨 */
+    font-size: 1rem !important;
+    color: var(--text-color) !important;
+    line-height: 1.5 !important;
+}
+.google-visualization-orgchart-node-medium {
+    font-weight: 700 !important;
+    background: var(--light-gray) !important;
+}
+.google-visualization-orgchart-node-large {
+    background: var(--primary-color) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    padding: 18px 40px !important; /* 수정됨 */
+    font-size: 1.2rem !important;
+}
 
 /* --- 푸터 스타일 --- */
 footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font-size: 0.9rem; line-height: 1.8; margin-top: auto; }
@@ -134,9 +139,6 @@ footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
     .mission-grid, .goals-grid { grid-template-columns: repeat(2, 1fr); }
-    .org-branches { grid-template-columns: 1fr; gap: 30px; }
-    .org-branches::before { display: none; }
-    .org-branch::before { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 30px; background-color: var(--border-color); }
 }
 @media (max-width: 768px) {
     .logo-container span { display: none; }
