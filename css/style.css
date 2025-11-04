@@ -86,19 +86,19 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .goal-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
 
 
-/* --- 조직도 페이지 스타일 (终极兼容版) --- */
-/* 1. 图表容器：使用 text-align: center 来居中 */
+/* --- 조직도 페이지 스타일 (终极跨浏览器兼容版) --- */
+/* 1. 外层容器：使用 text-align: center; 这是一个极其可靠的居中方法 */
 #chart_div {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    text-align: center;
+    text-align: center; /* 命令其内部的 inline-block 元素居中 */
 }
 
-/* 2. Google Chart 生成的表格：使用 !important 强制居中 */
-#chart_div table.google-visualization-orgchart-table {
-    margin: 0 auto !important; /* 使用 margin auto 并添加 !important 强制居中 */
-    text-align: left;
+/* 2. Google Chart生成的表格：使其能被 text-align 影响 */
+#chart_div table {
+    display: inline-block; /* 使表格像一个巨大的文字一样，可以被居中 */
+    text-align: left;    /* 恢复表格内部的文字为正常的左对齐 */
 }
 
 /* 所有节点的通用样式 */
