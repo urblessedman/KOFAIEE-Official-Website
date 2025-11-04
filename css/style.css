@@ -85,21 +85,23 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .goal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 .goal-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
 
-/* --- 조직도 페이지 스타일 (최종 솔루션) --- */
-.org-chart-container { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.org-node { display: inline-block; padding: 12px 25px; border-radius: 8px; font-family: var(--font-body); font-size: 1rem; font-weight: 500; border: 1px solid var(--border-color); background-color: white; }
+/* --- 조직도 페이지 스타일 (최종 솔루션 v2) --- */
+.org-chart { text-align: center; }
+.org-node { display: inline-block; padding: 12px 25px; border-radius: 8px; font-family: var(--font-body); font-size: 1rem; font-weight: 500; border: 1px solid var(--border-color); background-color: white; color: var(--text-color); }
 .org-node.root { background-color: var(--primary-color); color: white; font-weight: 700; padding: 15px 35px; }
-.org-node.advisory { background-color: var(--light-gray); }
 .connector { width: 2px; height: 30px; background-color: var(--border-color); margin: 0 auto; }
+.org-top-levels { display: flex; flex-direction: column; align-items: center; }
 .org-main-branches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; margin-top: 30px; position: relative; }
 .org-main-branches::before { content: ''; position: absolute; top: -32px; left: 16.66%; right: 16.66%; height: 2px; background-color: var(--border-color); }
-.branch-group { display: flex; flex-direction: column; align-items: center; background-color: var(--light-gray); padding: 30px; border-radius: 12px; position: relative; height: 100%; }
+.branch-group { display: flex; flex-direction: column; align-items: center; position: relative; }
 .branch-group::before { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 30px; background-color: var(--border-color); }
-.branch-group .parent { font-weight: 700; width: 100%; }
-.branch-divider { border: 0; height: 1px; background-color: var(--border-color); width: 60%; margin: 20px 0; }
-.branch-sub-nodes { display: flex; flex-direction: column; gap: 15px; width: 100%; }
-.branch-sub-nodes .node-pair { display: flex; gap: 15px; width: 100%; }
-.branch-sub-nodes .node-pair .org-node { flex: 1; }
+.branch-group .parent { font-weight: 700; background-color: var(--light-gray); width: 100%; margin-bottom: 30px; }
+.branch-sub-nodes { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; position: relative; }
+.branch-sub-nodes::before { content: ''; position: absolute; top: -32px; left: 50%; transform: translateX(-1px); width: 2px; height: 30px; background-color: var(--border-color); }
+.node-pair { display: flex; gap: 15px; width: 100%; position: relative; }
+.node-pair::before { content: ''; position: absolute; top: -17px; left: 25%; right: 25%; height: 2px; background-color: var(--border-color); }
+.node-pair .org-node { flex: 1; position: relative; }
+.node-pair .org-node::before { content: ''; position: absolute; top: -15px; left: 50%; transform: translateX(-1px); width: 2px; height: 15px; background-color: var(--border-color); }
 
 /* --- 푸터 스타일 --- */
 footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font-size: 0.9rem; line-height: 1.8; margin-top: auto; }
@@ -132,7 +134,7 @@ footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font
     .mission-grid, .goals-grid { grid-template-columns: repeat(2, 1fr); }
     .org-main-branches { grid-template-columns: 1fr; gap: 30px; }
     .org-main-branches::before { display: none; }
-    .branch-group::before { display: none; }
+    .branch-group::before { top: -30px; left: 50%; transform: translateX(-1px); width: 2px; height: 30px; background-color: var(--border-color); }
 }
 @media (max-width: 768px) {
     .logo-container span { display: none; }
