@@ -15,30 +15,31 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/script.js" defer></script>
     <style>
-        /* --- 새로운 조직도 스타일 시작 --- */
+        /* --- 새로운 조직도 스타일 (연결선 수정) --- */
+        .org-chart-container {
+            display: flex;
+            justify-content: center;
+        }
         .org-chart {
             text-align: center;
             padding: 0;
             margin: 0;
+            display: inline-block; /* 내용물만큼만 너비 차지 */
         }
-        /* 모든 리스트 기본 스타일 제거 */
         .org-chart ul, .org-chart li {
             list-style-type: none;
             margin: 0;
             padding: 0;
             position: relative;
         }
-        /* 하위 그룹(ul)에 위쪽 여백 추가 */
         .org-chart ul {
-            padding-top: 40px;
+            padding-top: 40px; /* 부모-자식 간의 수직 거리 */
         }
-        /* 리스트 아이템(li) 스타일 */
         .org-chart li {
             display: inline-block;
             vertical-align: top;
-            padding: 0 15px;
+            padding: 0 20px; /* 형제 노드 간의 좌우 여백 */
         }
-        /* 조직도 노드(박스) 스타일 */
         .org-chart .node {
             display: inline-block;
             padding: 15px 25px;
@@ -57,106 +58,118 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.07);
         }
-        /* 연결선 스타일 */
-        .org-chart li::before, .org-chart li::after {
+
+        /* --- 연결선 로직 (핵심 수정) --- */
+        /* 부모에서 자식 그룹으로 내려가는 수직선 */
+        .org-chart li > .node + ul::before {
             content: '';
             position: absolute;
+            top: -20px; /* 수직선 길이의 절반 */
             left: 50%;
-            border-color: #007bff; /* 선 색상 */
-            border-style: solid;
-            border-width: 0;
-        }
-        .org-chart ul li::before {
-            /* 자식 노드로 향하는 세로선 */
-            top: 0;
             transform: translateX(-50%);
-            border-top-width: 2px;
             width: 0;
-            height: 40px;
-        }
-        .org-chart ul li::after {
-            /* 형제 노드를 연결하는 가로선 */
-            top: 0;
-            transform: translateX(-50%);
-            border-top-width: 2px;
-            height: 0;
-            width: 100%;
-        }
-        /* 첫 번째 자식과 마지막 자식의 가로선 절반만 그리기 */
-        .org-chart ul li:first-child::after {
-            left: 50%;
-            width: 50%;
-        }
-        .org-chart ul li:last-child::after {
-            width: 50%;
-        }
-        .org-chart ul li:only-child::after {
-            display: none; /* 자식이 하나일 경우 가로선 숨김 */
-        }
-        /* 부모 노드에서 아래로 내려오는 세로선 */
-        .org-chart .parent-node > .node::after {
-            content: '';
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
+            height: 20px; /* 수직선 길이 */
             border-left: 2px solid #007bff;
+        }
+
+        /* 자식 노드에서 위로 올라가는 수직선 */
+        .org-chart li > .node::before {
+            content: '';
+            position: absolute;
+            top: -20px; /* 수직선 길이 */
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 40px;
+            height: 20px; /* 수직선 길이 */
+            border-left: 2px solid #007bff;
+        }
+        
+        /* 형제 노드들을 연결하는 수평선 */
+        .org-chart li::after {
+            content: '';
+            position: absolute;
+            top: -21px; /* 수직선과 만나는 지점 */
+            left: 0;
+            width: 100%;
+            height: 0;
+            border-top: 2px solid #007bff;
+        }
+
+        /* 첫 번째 자식과 마지막 자식의 수평선 절반만 그리기 */
+        .org-chart li:first-child::after {
+            left: 50%;
+            width: 50%;
+        }
+        .org-chart li:last-child::after {
+            left: 0;
+            width: 50%;
+        }
+
+        /* 자식이 하나일 경우 수평선 숨기기 */
+        .org-chart li:only-child::after {
+            display: none;
+        }
+        /* 최상위 노드와 그 직계 자식에게는 선이 필요 없음 */
+        .org-chart > li > .node::before,
+        .org-chart > li > .node + ul::before,
+        .org-chart > li:first-child::after {
+             display: none;
         }
 
         /* --- 반응형 디자인 --- */
         @media (max-width: 768px) {
+            .org-chart-container {
+                justify-content: flex-start;
+            }
             .org-chart li {
                 display: block; /* 세로로 쌓이도록 변경 */
-                margin-bottom: 50px;
+                padding: 0;
+                margin-bottom: 50px; /* 노드 간 세로 간격 */
+            }
+            .org-chart li:last-child {
+                margin-bottom: 0;
             }
             .org-chart ul {
                 padding-top: 0;
+                padding-left: 40px; /* 들여쓰기 */
                 position: relative;
+                margin-top: 30px;
             }
-            /* 모바일에서는 가로선 숨김 */
-            .org-chart ul li::after {
-                display: none;
-            }
-            /* 세로선을 왼쪽으로 정렬 */
+            /* 모바일용 세로 연결선 */
             .org-chart ul::before {
                 content: '';
                 position: absolute;
-                left: 20px;
+                left: 0;
                 top: -20px;
                 bottom: 20px;
                 width: 0;
                 border-left: 2px solid #007bff;
             }
-            .org-chart ul li::before {
+            /* 모바일용 가로 연결선 */
+            .org-chart ul li > .node::before {
                 top: 50%;
-                left: -20px;
+                left: -40px; /* 부모 세로선까지의 거리 */
                 width: 40px;
                 height: 0;
-                border-top-width: 2px;
-                transform: translateY(-50%);
+                border-top: 2px solid #007bff;
+                border-left: none;
             }
-            .org-chart .parent-node > .node::after {
-                left: 20px;
-                transform: translateX(0);
-            }
-            .org-chart {
-                display: flex;
-                justify-content: flex-start;
+            /* 데스크탑용 선 모두 숨기기 */
+            .org-chart li::after,
+            .org-chart li > .node + ul::before {
+                display: none;
             }
         }
-        /* --- 새로운 조직도 스타일 끝 --- */
     </style>
 </head>
 <body>
 
     <header>
+        <!-- ... (헤더는 그대로 유지) ... -->
         <div class="container">
             <a href="../index.html" class="logo-container"><img src="../images/logo-header.png" alt="KOFAIEE Logo"><span>한국국제교육교류우호협회</span></a>
             <nav>
                 <ul class="nav-menu">
-                    <!-- ... (네비게이션 메뉴는 그대로 유지) ... -->
                     <li><a href="greetings.html">협회 소개</a><ul class="dropdown"><li><a href="greetings.html">인사말</a></li><li><a href="purpose.html">설립목적</a></li><li><a href="organization.html">조직/조직도</a></li><li><a href="history.html">협회연혁</a></li><li><a href="location.html">오시는길</a></li></ul></li>
                     <li><a href="../activities/strategy-forum.html">협회 사업</a><ul class="dropdown"><li><a href="../activities/strategy-forum.html">국제전략포럼</a></li><li><a href="../activities/data-forum.html">데이터경제포럼</a></li><li><a href="../activities/platform.html">교육문화교류플랫폼</a></li></ul></li>
                     <li><a href="../partners/fields.html">협회 협력</a><ul class="dropdown"><li><a href="../partners/fields.html">협력분야</a></li><li><a href="../partners/institutions.html">협력기관</a></li><li><a href="../partners/proposal.html">협력제안</a></li></ul></li>
@@ -174,35 +187,35 @@
 
         <div class="page-content fade-in-section">
             <div class="container">
-                <!-- 새로운 HTML 조직도 시작 -->
-                <ul class="org-chart">
-                    <li class="parent-node">
-                        <span class="node">한국국제교육교류우호협회</span>
-                        <ul>
-                            <li class="parent-node">
-                                <span class="node">고문단</span>
-                                <ul>
-                                    <li class="parent-node">
-                                        <span class="node">국제전략포럼</span>
-                                        <ul><li><span class="node">팩트체크센터</span></li></ul>
-                                    </li>
-                                    <li class="parent-node">
-                                        <span class="node">데이터경제포럼</span>
-                                        <ul>
-                                            <li><span class="node">아시아데이터연구소</span></li>
-                                            <li><span class="node">한중21</span></li>
-                                        </ul>
-                                    </li>
-                                    <li class="parent-node">
-                                        <span class="node">교육문화교류플랫폼</span>
-                                        <ul><li><span class="node">교육문화교류지원</span></li></ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- 새로운 HTML 조직도 끝 -->
+                <div class="org-chart-container">
+                    <ul class="org-chart">
+                        <li>
+                            <span class="node">한국국제교육교류우호협회</span>
+                            <ul>
+                                <li>
+                                    <span class="node">고문단</span>
+                                    <ul>
+                                        <li>
+                                            <span class="node">국제전략포럼</span>
+                                            <ul><li><span class="node">팩트체크센터</span></li></ul>
+                                        </li>
+                                        <li>
+                                            <span class="node">데이터경제포럼</span>
+                                            <ul>
+                                                <li><span class="node">아시아데이터연구소</span></li>
+                                                <li><span class="node">한중21</span></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="node">교육문화교류플랫폼</span>
+                                            <ul><li><span class="node">교육문화교류지원</span></li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </main>
