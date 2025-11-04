@@ -210,3 +210,34 @@ footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font
     .mission-grid, .goals-grid { grid-template-columns: 1fr; }
     .timeline-events li p { margin: 0 0 0 60px; }
 }
+/* --- 统一图片风格优化 --- */
+
+/* 页面顶部横幅图片容器 */
+.page-banner {
+    width: 100%;
+    height: 350px; /* 您可以根据喜好调整图片高度 */
+    overflow: hidden;
+    position: relative;
+    background-color: var(--primary-color); /* 图片加载前的背景色 */
+}
+
+/* 统一的图片滤镜和悬停效果 */
+.filtered-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保证图片不变形地填满容器 */
+    filter: grayscale(40%) sepia(10%) brightness(90%); /* 核心滤镜：轻微去色、增加复古感、略微调暗 */
+    transition: all 0.5s ease; /* 平滑的过渡效果 */
+}
+
+/* 鼠标悬停时，图片恢复鲜活色彩并轻微放大 */
+.page-banner:hover .filtered-image {
+    filter: grayscale(0%) sepia(0%) brightness(100%);
+    transform: scale(1.05);
+}
+
+/* 调整页面主要内容区域的上边距，使其与新图片协调 */
+.page-content {
+    padding-top: 60px; /* 稍微减小原有的顶部内边距 */
+    padding-bottom: 80px;
+}
