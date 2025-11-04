@@ -1,19 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // --- 1. 모바일 햄버거 메뉴 기능 ---
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const body = document.querySelector('body');
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            // 햄버거 메뉴와 네비게이션 메뉴를 활성화/비활성화
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-            // 스크롤 방지
             body.classList.toggle('no-scroll');
         });
     }
-
-    // 네비게이션 링크 클릭 시 메뉴 닫기 (모바일에서)
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -24,4 +21,23 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // --- 2. 스크롤 애니메이션 기능 (새로 추가됨) ---
+    const animatedSections = document.querySelectorAll('.fade-in-section');
+    if (animatedSections.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // 섹션이 10% 보였을 때 애니메이션 시작
+        });
+
+        animatedSections.forEach(section => {
+            observer.observe(section);
+        });
+    }
 });
