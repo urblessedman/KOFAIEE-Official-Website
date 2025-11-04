@@ -91,19 +91,22 @@ header .container { display: flex; justify-content: space-between; align-items: 
     border: 1px solid var(--border-color) !important;
     border-radius: 8px !important;
     box-shadow: none !important;
-    background-color: white !important;
+    background: white !important;
     font-family: var(--font-body) !important;
     padding: 12px 25px !important;
+    font-size: 1rem !important;
+    color: var(--text-color) !important;
 }
 .google-visualization-orgchart-node-medium {
     font-weight: 700 !important;
-    background-color: var(--light-gray) !important;
+    background: var(--light-gray) !important;
 }
 .google-visualization-orgchart-node-large {
-    background-color: var(--primary-color) !important;
+    background: var(--primary-color) !important;
     color: white !important;
     font-weight: 700 !important;
     padding: 15px 35px !important;
+    font-size: 1.2rem !important;
 }
 
 /* --- 푸터 스타일 --- */
