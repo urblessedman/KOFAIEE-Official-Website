@@ -88,12 +88,28 @@ header .container { display: flex; justify-content: space-between; align-items: 
 /* --- 조직도 페이지 스타일 (Google Charts 최종 솔루션) --- */
 #chart_div { width: 100%; max-width: 900px; margin: 0 auto; }
 .google-visualization-orgchart-node {
-    border: 1px solid var(--border-color) !important; border-radius: 8px !important; box-shadow: none !important;
-    background: white !important; font-family: var(--font-body) !important; padding: 15px 25px !important;
-    font-size: 1rem !important; color: var(--text-color) !important; line-height: 1.5 !important; white-space: nowrap !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    background: white !important;
+    font-family: var(--font-body) !important;
+    padding: 15px 25px !important;
+    font-size: 1rem !important;
+    color: var(--text-color) !important;
+    line-height: 1.5 !important;
+    white-space: nowrap !important;
 }
-.google-visualization-orgchart-node-medium { font-weight: 700 !important; background: var(--light-gray) !important; }
-.google-visualization-orgchart-node-large { background: var(--primary-color) !important; color: white !important; font-weight: 700 !important; padding: 18px 40px !important; font-size: 1.2rem !important; }
+.google-visualization-orgchart-node-medium {
+    font-weight: 700 !important;
+    background: var(--light-gray) !important;
+}
+.google-visualization-orgchart-node-large {
+    background: var(--primary-color) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    padding: 18px 40px !important;
+    font-size: 1.2rem !important;
+}
 /* --- 이 부분이 최종 수정의 핵심입니다! --- */
 #chart_div table { margin: 0 auto; }
 
