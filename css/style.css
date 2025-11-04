@@ -3,8 +3,7 @@
 
 :root {
     --primary-color: #0A2240; --accent-color: #0056b3; --text-color: #333333; --text-light: #555555; --background-color: #ffffff; --light-gray: #f8f9fa; --border-color: #dee2e6;
-    --font-heading: 'Gowun Dodum', serif; /* 제목용 폰트 */
-    --font-body: 'Noto Sans KR', sans-serif; /* 본문용 폰트 */
+    --font-heading: 'Gowun Dodum', serif; --font-body: 'Noto Sans KR', sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: var(--font-body); line-height: 1.8; color: var(--text-color); background-color: var(--background-color); display: flex; flex-direction: column; min-height: 100vh; }
@@ -12,7 +11,7 @@ body.no-scroll { overflow: hidden; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
 main { flex-grow: 1; }
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.4; font-weight: 700; color: var(--primary-color); }
-a { color: var(--accent-color); text-decoration: none; transition: color 0.3s ease; }
+a { color: var(--accent-color); text-decoration: none; transition: all 0.3s ease; }
 a:hover { color: var(--primary-color); }
 
 /* --- 애니메이션 --- */
@@ -40,27 +39,27 @@ header .container { display: flex; justify-content: space-between; align-items: 
 /* --- 페이지 공통 스타일 --- */
 .page-header { background-color: var(--primary-color); color: white; padding: 60px 0; text-align: center; }
 .page-header h1 { font-size: 2.8rem; color: white; }
-.page-content { padding: 100px 0; } /* 간격 증가 */
-.section { padding: 100px 0; } /* 간격 증가 */
-.section-title { text-align: center; font-size: 2.8rem; margin-bottom: 15px; } /* 폰트 사이즈 증가 */
+.page-content { padding: 100px 0; }
+.section { padding: 100px 0; }
+.section-title { text-align: center; font-size: 2.8rem; margin-bottom: 15px; }
 .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 80px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
 /* --- 홈페이지 섹션 스타일 --- */
-.hero { position: relative; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop') no-repeat center center/cover; padding-bottom: 80px; } /* 하단 패딩 추가 */
+.hero { position: relative; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop') no-repeat center center/cover; padding-bottom: 80px; }
 .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 34, 64, 0.7); }
 .hero-content { position: relative; z-index: 2; max-width: 900px; }
 .hero h1 { font-size: 3.5rem; color: white; margin-bottom: 20px; }
 .hero p { font-family: var(--font-body); font-size: 1.3rem; margin-bottom: 40px; font-weight: 400; }
-.cta-button { font-family: var(--font-body); background-color: white; color: var(--primary-color); padding: 15px 35px; border-radius: 50px; font-size: 1.1rem; font-weight: 700; transition: all 0.3s ease; }
+.cta-button { font-family: var(--font-body); background-color: white; color: var(--primary-color); padding: 15px 35px; border-radius: 50px; font-size: 1.1rem; font-weight: 700; }
 .cta-button:hover { background-color: var(--light-gray); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.hero-divider { position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; z-index: 1; } /* SVG 구분선 */
+.hero-divider { position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; z-index: 1; }
 .hero-divider svg { width: 100%; height: 100%; }
 .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
 .mission-item .icon svg { width: 50px; height: 50px; color: var(--accent-color); margin-bottom: 25px; }
 .mission-item h3 { font-size: 1.6rem; margin-bottom: 15px; }
 .partners-section { background-color: var(--light-gray); }
 .partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 30px; }
-.partner-card { background-color: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 20px; text-align: center; transition: all 0.3s ease; }
+.partner-card { background-color: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 20px; text-align: center; }
 .partner-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--accent-color); }
 .partner-card .logo-wrapper { height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
 .partner-card img { max-height: 100%; max-width: 130px; }
@@ -82,9 +81,27 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .purpose-intro { max-width: 800px; margin: 0 auto 80px auto; }
 .purpose-intro .lead { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 25px; line-height: 1.7; text-align: center; }
 .goals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-.goal-card { background-color: var(--light-gray); border-radius: 12px; padding: 30px; transition: all 0.3s ease; }
+.goal-card { background-color: var(--light-gray); border-radius: 12px; padding: 30px; }
 .goal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 .goal-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+
+/* --- 조직도 페이지 스타일 (새로 추가됨) --- */
+.org-chart { text-align: center; }
+.org-chart ul { padding: 0; list-style: none; position: relative; }
+.org-chart ul li { padding: 20px 5px 0 5px; position: relative; }
+.org-chart ul ul::before { content: ''; position: absolute; top: 0; left: 50%; border-left: 2px solid var(--border-color); width: 0; height: 20px; }
+.org-chart ul li::before, .org-chart ul li::after { content: ''; position: absolute; top: 0; right: 50%; border-top: 2px solid var(--border-color); width: 50%; height: 20px; }
+.org-chart ul li::after { right: auto; left: 50%; border-left: 2px solid var(--border-color); }
+.org-chart ul li:only-child::after, .org-chart ul li:only-child::before { display: none; }
+.org-chart ul li:first-child::before, .org-chart ul li:last-child::after { border: 0 none; }
+.org-chart ul li:last-child::before { border-right: 2px solid var(--border-color); border-radius: 0 5px 0 0; }
+.org-chart ul li:first-child::after { border-radius: 5px 0 0 0; }
+.org-node { display: inline-block; padding: 15px 30px; background-color: white; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1.1rem; font-weight: 500; }
+.org-node.root { background-color: var(--primary-color); color: white; border: none; font-size: 1.3rem; font-weight: 700; }
+.org-node.sub-root { background-color: var(--light-gray); font-weight: 700; }
+.org-node:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.07); }
+.org-chart > ul > li > ul { display: flex; justify-content: center; }
+.org-chart > ul > li > ul > li { flex: 1; }
 
 /* --- 푸터 스타일 --- */
 footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font-size: 0.9rem; line-height: 1.8; margin-top: auto; }
@@ -115,6 +132,7 @@ footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
     .mission-grid, .goals-grid { grid-template-columns: repeat(2, 1fr); }
+    .org-chart > ul > li > ul { flex-direction: column; }
 }
 @media (max-width: 768px) {
     .logo-container span { display: none; }
