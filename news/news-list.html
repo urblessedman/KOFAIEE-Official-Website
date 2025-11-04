@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뉴스 - 한국국제교육교류우호협회</title>
+    <meta name="description" content="한국국제교육교류우호협회의 활동과 관련된 최신 뉴스와 보도자료를 만나보세요.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+    <style>
+        /* 뉴스 페이지를 위한 추가 스타일 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .news-card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+        .news-card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        .news-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .news-card:hover .news-card-image img {
+            transform: scale(1.05);
+        }
+        .news-card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .news-card-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .news-card-content h3 a {
+            color: var(--primary-color);
+        }
+        .news-card-content h3 a:hover {
+            color: var(--accent-color);
+        }
+        .news-card-content .excerpt {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .news-card-content .meta {
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+        /* 페이지네이션은 announcements.html과 동일한 스타일을 사용 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+        }
+        .pagination a, .pagination strong {
+            color: var(--text-light);
+            padding: 8px 15px;
+            margin: 0 4px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .pagination a:hover {
+            background-color: var(--light-gray);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        .pagination strong {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            font-weight: 700;
+        }
+        .pagination .nav-arrow {
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo-container"><img src="../images/logo-header.png" alt="KOFAIEE Logo"><span>한국국제교육교류우호협회</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../about/greetings.html">협회 소개</a><ul class="dropdown"><li><a href="../about/greetings.html">인사말</a></li><li><a href="../about/purpose.html">설립목적</a></li><li><a href="../about/organization.html">조직/조직도</a></li><li><a href="../about/history.html">협회연혁</a></li><li><a href="../about/location.html">오시는길</a></li></ul></li>
+                    <li><a href="../activities/strategy-forum.html">협회 사업</a><ul class="dropdown"><li><a href="../activities/strategy-forum.html">국제전략포럼</a></li><li><a href="../activities/data-forum.html">데이터경제포럼</a></li><li><a href="../activities/platform.html">교육문화교류플랫폼</a></li></ul></li>
+                    <li><a href="../partners/fields.html">협회 협력</a><ul class="dropdown"><li><a href="../partners/fields.html">협력분야</a></li><li><a href="../partners/institutions.html">협력기관</a></li><li><a href="../partners/proposal.html">협력제안</a></li></ul></li>
+                    <li><a href="announcements.html">협회 소식</a><ul class="dropdown"><li><a href="announcements.html">공지사항</a></li><li><a href="news-list.html">뉴스</a></li></ul></li>
+                </ul>
+            </nav>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header"><h1>뉴스</h1></div>
+        <div class="page-content fade-in-section">
+            <div class="container">
+                <div class="news-grid">
+                    <!-- 뉴스 카드 1 -->
+                    <article class="news-card">
+                        <a href="#" class="news-card-image"><img src="../images/news/news1.jpg" alt="협회와 라시에라대학교 MOU 체결"></a>
+                        <div class="news-card-content">
+                            <h3><a href="#">본 협회, 美 라시에라대학교와 교육 협력 MOU 체결</a></h3>
+                            <p class="excerpt">한국국제교육교류우호협회는 미국 라시에라대학교와 공동 교육 프로그램 개발 및 학생 교류 확대를 위한 양해각서(MOU)를 체결했다고 밝혔습니다.</p>
+                            <div class="meta">2025년 10월 25일</div>
+                        </div>
+                    </article>
+                    <!-- 뉴스 카드 2 -->
+                    <article class="news-card">
+                        <a href="#" class="news-card-image"><img src="../images/news/news2.jpg" alt="국제전략포럼 개최"></a>
+                        <div class="news-card-content">
+                            <h3><a href="#">'변화하는 세계 질서와 우리의 미래' 국제전략포럼 성황리 개최</a></h3>
+                            <p class="excerpt">국내외 석학들이 참여한 가운데 '변화하는 세계 질서와 우리의 미래'를 주제로 한 2025 국제전략포럼이 성공적으로 마무리되었습니다.</p>
+                            <div class="meta">2025년 10월 18일</div>
+                        </div>
+                    </article>
+                    <!-- 뉴스 카드 3 -->
+                    <article class="news-card">
+                        <a href="#" class="news-card-image"><img src="../images/news/news3.jpg" alt="데이터경제포럼 현장"></a>
+                        <div class="news-card-content">
+                            <h3><a href="#">한중 청년들, 데이터로 경제의 미래를 논하다</a></h3>
+                            <p class="excerpt">한중 양국 유학생들과 언론인들이 함께하는 데이터경제포럼이 출범했습니다. 데이터 분석을 통해 양국 경제 협력의 새로운 모델을 제시합니다.</p>
+                            <div class="meta">2025년 10월 11일</div>
+                        </div>
+                    </article>
+                     <!-- 뉴스 카드 4 -->
+                    <article class="news-card">
+                        <a href="#" class="news-card-image"><img src="../images/news/news4.jpg" alt="문화 교류 플랫폼 활동"></a>
+                        <div class="news-card-content">
+                            <h3><a href="#">교육문화교류플랫폼, '한국 문화 체험 주간' 행사 개최</a></h3>
+                            <p class="excerpt">국내 거주 외국인 학생들을 대상으로 K-POP 댄스, 한복 체험 등 다채로운 프로그램으로 구성된 '한국 문화 체험 주간' 행사를 열었습니다.</p>
+                            <div class="meta">2025년 9월 27일</div>
+                        </div>
+                    </article>
+                    <!-- 뉴스 카드 5 -->
+                    <article class="news-card">
+                        <a href="#" class="news-card-image"><img src="../images/news/news5.jpg" alt="강준영 이사장 특별 강연"></a>
+                        <div class="news-card-content">
+                            <h3><a href="#">강준영 이사장, '글로벌 시대의 인재상' 주제로 특별 강연</a></h3>
+                            <p class="excerpt">본 협회 강준영 이사장이 한국외국어대학교에서 '글로벌 시대가 요구하는 인재의 조건'을 주제로 미래 세대를 위한 특별 강연을 진행했습니다.</p>
+                            <div class="meta">2025년 9월 15일</div>
+                        </div>
+                    </article>
+                    <!-- 뉴스 카드 6 -->
+                    <article class="news-card">
+                        <a href="#" class="news-card-image"><img src="../images/news/news6.jpg" alt="남일리노이주립대와 협약"></a>
+                        <div class="news-card-content">
+                            <h3><a href="#">남일리노이주립대(SIUE)와 학술 교류 협약 체결</a></h3>
+                            <p class="excerpt">본 협회는 미국 남일리노이주립대학교와 교수진 및 연구 자료 교환을 포함하는 포괄적인 학술 교류 협약을 체결하였습니다.</p>
+                            <div class="meta">2025년 9월 05일</div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 페이지네이션 -->
+                <nav class="pagination" aria-label="Page navigation">
+                    <a href="#" class="nav-arrow">&laquo;</a>
+                    <strong>1</strong>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#" class="nav-arrow">&raquo;</a>
+                </nav>
+
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-main">
+            <div class="footer-col about"><img src="../images/logo-footer.png" alt="KOFAIEE Footer Logo" class="footer-logo"><p class="corp-name">사단법인 한국국제교육교류우호협회</p><p class="ceo-name">대표 : 강준영</p></div>
+            <div class="footer-col"><h4>바로가기</h4><ul><li><a href="../about/greetings.html">협회 소개</a></li><li><a href="../activities/strategy-forum.html">협회 사업</a></li><li><a href="../partners/fields.html">협회 협력</a></li><li><a href="announcements.html">협회 소식</a></li></ul></div>
+            <div class="footer-col"><h4>연락 정보</h4><ul><li>서울특별시 중랑구 사가정로 41길 6 (면목동)</li><li>Tel: 02-6471-8602</li><li>외교부 인가 비영리 사단법인(제603호)</li></ul></div>
+        </div>
+        <div class="footer-copyright"><p>Copyright 2024. KOREA INTERNATIONAL EDUCATION EXCHANGE AND FRIENDSHIP ASSOCIATION. All rights reserved.</p></div>
+    </footer>
+
+</body>
+</html>
