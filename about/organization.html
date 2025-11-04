@@ -42,7 +42,11 @@
         data.setRowProperty(4, 'style', 'node-medium');
 
         var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
-        chart.draw(data, {allowHtml:true, 'size':'large'});
+        
+        // --- 수정된 부분 ---
+        // 'size' 옵션을 제거하여 차트가 노드 크기를 자동으로 조절하도록 합니다.
+        // 이렇게 하면 텍스트가 세로로 표시되는 대신 가로로 올바르게 표시됩니다.
+        chart.draw(data, {allowHtml:true});
       }
     </script>
 </head>
