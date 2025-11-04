@@ -6,8 +6,51 @@
     <title>조직/조직도 - 한국국제교육교류우호협회</title>
     <meta name="description" content="한국국제교육교류우호협회의 조직 구성도입니다.">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../css/style.css?v=CSSGridFinal"> <!-- Cache Busting -->
+    <link rel="stylesheet" href="../css/style.css?v=GoogleChartFinal"> <!-- Cache Busting -->
     <script src="../js/script.js" defer></script>
+    
+    <!-- Google Charts 라이브러리 로드 -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:['orgchart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('string', 'Manager');
+
+        // 조직도 데이터
+        data.addRows([
+          // [{v:'id', f:'표시될 텍스트'}, '부모id'],
+          [{v:'root', f:'한국국제교육교류우호협회'}, ''],
+          [{v:'advisory', f:'고문단'}, 'root'],
+          [{v:'forum1', f:'국제전략포럼'}, 'advisory'],
+          [{v:'forum2', f:'데이터경제포럼'}, 'advisory'],
+          [{v:'forum3', f:'교육문화교류플랫폼'}, 'advisory'],
+          [{v:'center1', f:'팩트체크센터'}, 'forum1'],
+          [{v:'center2', f:'교육문화교류지원'}, 'forum3'],
+          [{v:'lab1', f:'아시아데이터연구소'}, 'forum2'],
+          [{v:'lab2', f:'한중21'}, 'forum2']
+        ]);
+
+        // 각 노드에 스타일 적용
+        data.setRowProperty(0, 'selectedStyle', 'node-large');
+        data.setRowProperty(0, 'style', 'node-large');
+        
+        for (let i = 1; i <= 4; i++) {
+            data.setRowProperty(i, 'selectedStyle', 'node-medium');
+            data.setRowProperty(i, 'style', 'node-medium');
+        }
+
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        chart.draw(data, {
+            allowHtml: true,
+            allowCollapse: false,
+            nodeClass: 'google-visualization-orgchart-node'
+        });
+      }
+    </script>
 </head>
 <body>
 
@@ -34,47 +77,9 @@
         <div class="page-content fade-in-section">
             <div class="container">
                 <h2 class="section-title">협회 조직도</h2>
-
-                <div class="org-chart">
-                    <div class="org-level">
-                        <div class="org-node root">
-                            <img src="../images/logo-footer.png" alt="KOFAIEE Logo">
-                            한국국제교육교류우호협회
-                        </div>
-                    </div>
-                    <div class="org-level">
-                        <div class="org-node advisory">고문단</div>
-                    </div>
-
-                    <div class="org-branches">
-                        <!-- Branch 1 -->
-                        <div class="org-branch">
-                            <div class="org-node">국제전략포럼</div>
-                            <div class="node-children">
-                                <div class="org-node">팩트체크센터</div>
-                            </div>
-                        </div>
-
-                        <!-- Branch 2 -->
-                        <div class="org-branch">
-                            <div class="org-node">데이터경제포럼</div>
-                            <div class="node-children">
-                                <div class="node-pair">
-                                    <div class="org-node">아시아데이터연구소</div>
-                                    <div class="org-node">한중21</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Branch 3 -->
-                        <div class="org-branch">
-                            <div class="org-node">교육문화교류플랫폼</div>
-                            <div class="node-children">
-                                <div class="org-node">교육문화교류지원</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                <!-- Google Chart가 그려질 컨테이너 -->
+                <div id="chart_div"></div>
 
             </div>
         </div>
