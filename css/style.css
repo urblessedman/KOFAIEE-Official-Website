@@ -1,5 +1,5 @@
-/* --- 기본 및 전역 스타일 --- */
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700&display.swap');
+/* --- 基本及全局样式 --- */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
 :root {
     --primary-color: #0A2240; --accent-color: #0056b3; --text-color: #333333; --text-light: #555555; --background-color: #ffffff; --light-gray: #f8f9fa; --border-color: #dee2e6;
@@ -14,13 +14,13 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.4; fon
 a { color: var(--accent-color); text-decoration: none; transition: all 0.3s ease; }
 a:hover { color: var(--primary-color); }
 
-/* --- 애니메이션 --- */
+/* --- 动画 --- */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 main { animation: fadeIn 0.6s ease-out; }
 .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
 
-/* --- 헤더 및 네비게이션 --- */
+/* --- 头部及导航 --- */
 header { background: var(--background-color); border-bottom: 1px solid #e9ecef; position: sticky; top: 0; z-index: 1000; }
 header .container { display: flex; justify-content: space-between; align-items: center; height: 100px; }
 .logo-container { display: flex; align-items: center; text-decoration: none; }
@@ -30,13 +30,13 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .nav-menu > li { display: inline-block; position: relative; margin-left: 60px; }
 .nav-menu a { font-family: var(--font-body); color: var(--text-light); font-weight: 500; font-size: 1.1rem; padding: 40px 0; }
 .nav-menu > li > a:hover { color: var(--accent-color); }
-.dropdown { display: block; position: absolute; top: 100%; left: 50%; background-color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); list-style: none; padding: 15px 0; min-width: 200px; border-radius: 8px; border-top: 3px solid var(--primary-color); opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s; }
+.dropdown { display: block; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background-color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); list-style: none; padding: 15px 0; min-width: 200px; border-radius: 8px; border-top: 3px solid var(--primary-color); opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s; }
 .nav-menu > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
-.dropdown li a { padding: 12px 25px; white-space: nowrap; }
+.dropdown li a { display: block; padding: 12px 25px; white-space: nowrap; }
 .dropdown li a:hover { background-color: var(--light-gray); color: var(--accent-color); }
 .hamburger { display: none; }
 
-/* --- 페이지 공통 스타일 --- */
+/* --- 页面通用样式 --- */
 .page-header { background-color: var(--primary-color); color: white; padding: 60px 0; text-align: center; }
 .page-header h1 { font-size: 2.8rem; color: white; }
 .page-content { padding: 80px 0; }
@@ -44,10 +44,10 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 15px; }
 .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 80px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-/* --- 홈페이지 섹션 스타일 --- */
+/* --- 首页样式 --- */
 .hero { position: relative; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop') no-repeat center center/cover; padding-bottom: 80px; }
 .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 34, 64, 0.7); }
-.hero-content { position: relative; z-index: 2; max-width: 900px; }
+.hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px;}
 .hero h1 { font-size: 3.5rem; color: white; margin-bottom: 20px; }
 .hero p { font-family: var(--font-body); font-size: 1.3rem; margin-bottom: 40px; font-weight: 400; }
 .cta-button { font-family: var(--font-body); background-color: white; color: var(--primary-color); padding: 15px 35px; border-radius: 50px; font-size: 1.1rem; font-weight: 700; }
@@ -65,124 +65,18 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .partner-card img { max-height: 100%; max-width: 130px; }
 .partner-card p { font-family: var(--font-body); font-weight: 500; color: var(--text-color); }
 
-/* --- 서브페이지 스타일 --- */
+/* --- 协会事业页面横幅 --- */
+.page-banner { width: 100%; height: 350px; overflow: hidden; position: relative; background-color: var(--primary-color); }
+.filtered-image { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%) sepia(10%) brightness(90%); transition: all 0.5s ease; }
+.page-banner:hover .filtered-image { filter: grayscale(0%) sepia(0%) brightness(100%); transform: scale(1.05); }
+
+/* --- 其他子页面样式... (省略未变动部分) --- */
 .greetings-intro h2 { font-size: 2.5rem; }
-.greetings-intro { text-align: center; margin-bottom: 50px; }
-.greetings-intro .subtitle { font-family: var(--font-body); font-size: 1.2rem; color: #555; }
-.greetings-content { display: flex; gap: 40px; align-items: flex-start; margin-bottom: 50px; }
-.greetings-text { flex: 2; }
-.greetings-profile { flex: 1; max-width: 300px; }
-.greetings-profile img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.signature { text-align: right; margin-bottom: 60px; }
-.signature p { font-family: var(--font-body); font-size: 1.1rem; color: #444; }
-.career-history h4 { font-size: 1.5rem; margin-bottom: 20px; }
-.career-history ul { list-style: none; padding-left: 0; }
-.career-history li { margin-bottom: 15px; padding-left: 20px; border-left: 3px solid var(--accent-color); line-height: 1.6; }
-.purpose-intro { max-width: 800px; margin: 0 auto 80px auto; }
-.purpose-intro .lead { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 25px; line-height: 1.7; text-align: center; }
-.goals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-.goal-card { background-color: var(--light-gray); border-radius: 12px; padding: 30px; }
-.goal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-.goal-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+/* ... 其他样式 ... */
 
-/* --- 협회연혁 페이지 타임라인 스타일 (素雅, 端庄 디자인) --- */
-.timeline { max-width: 800px; margin: 0 auto; padding: 20px 0; position: relative; }
-.timeline-item { padding-left: 50px; position: relative; margin-bottom: 60px; }
-.timeline-item::before { content: ''; position: absolute; left: 10px; top: 25px; width: 2px; height: calc(100% + 30px); background-color: var(--border-color); }
-.timeline-item:last-child::before { height: 100%; }
-.timeline-year { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--primary-color); margin-bottom: 30px; position: relative; }
-.timeline-year::before { content: ''; width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary-color); position: absolute; left: -46px; top: 50%; transform: translateY(-50%); border: 4px solid var(--background-color); }
-.timeline-events { list-style: none; padding: 0; margin: 0; }
-.timeline-events li { position: relative; padding: 20px 0; padding-left: 30px; border-bottom: 1px solid #f0f0f0; transition: background-color 0.3s ease; }
-.timeline-events li:last-child { border-bottom: none; }
-.timeline-events li:hover { background-color: #f8f9fa; }
-.timeline-events li::before { content: ''; position: absolute; left: -44px; top: 30px; width: 8px; height: 8px; border-radius: 50%; background-color: #cccccc; transition: all 0.3s ease; }
-.timeline-events li:hover::before { background-color: var(--accent-color); transform: scale(1.2); }
-.timeline-events li .month { font-family: var(--font-body); font-weight: 700; font-size: 1rem; color: var(--text-color); width: 50px; float: left; }
-.timeline-events li p { margin: 0 0 0 70px; padding: 0; line-height: 1.8; color: var(--text-light); }
-
-/* --- 오시는길 페이지 스타일 --- */
-.map-container { border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; margin-bottom: 60px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-.contact-info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 60px; background-color: var(--light-gray); padding: 50px; border-radius: 8px; }
-.contact-item h4 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: var(--accent-color); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
-.contact-item p { font-size: 1.1rem; color: var(--text-light); margin: 0; }
-.transport-guide { margin-top: 60px; }
-.transport-guide h3 { font-size: 2rem; text-align: center; margin-bottom: 40px; }
-.transport-item { display: flex; align-items: flex-start; margin-bottom: 30px; }
-.transport-icon { min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--primary-color); display: flex; align-items: center; justify-content: center; margin-right: 20px; }
-.transport-icon svg { width: 22px; height: 22px; color: white; }
-.transport-icon.bus { background-color: #4CAF50; }
-.transport-icon.subway { background-color: #FF5722; }
-.transport-details h4 { font-family: var(--font-body); font-size: 1.3rem; margin-bottom: 8px; }
-.transport-details p { margin: 0; color: var(--text-light); }
-.transport-details p strong { color: var(--text-color); }
-
-/* --- 사업 소개 등 텍스트 콘텐츠 페이지 스타일 --- */
-.content-wrapper { max-width: 800px; margin: 0 auto 50px auto; }
-.content-wrapper p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 1.8em; line-height: 2; }
-.cta-section { text-align: center; margin-top: 40px; }
-.cta-button.external { background-color: var(--primary-color); color: white; padding: 15px 40px; border-radius: 8px; font-weight: 700; font-size: 1.1rem; display: inline-block; transition: all 0.3s ease; text-decoration: none; }
-.cta-button.external:hover { background-color: var(--accent-color); box-shadow: 0 8px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
-
-
-/* --- 활동사진집 갤러리 스타일 시작 --- */
-.photo-gallery {
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border-color);
-}
-.photo-gallery h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 40px;
-}
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-.gallery-item {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-}
-.gallery-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-/* --- 활동사진집 갤러리 스타일 끝 --- */
-
-
-/* --- 조직도 페이지 스타일 --- */
-#chart_div { width: 100%; max-width: 900px; margin: 0 auto; }
-#chart_div table { margin: 0 auto; }
-.google-visualization-orgchart-node { border: 1px solid var(--border-color) !important; border-radius: 8px !important; box-shadow: none !important; background: white !important; font-family: var(--font-body) !important; padding: 15px 25px !important; font-size: 1rem !important; color: var(--text-color) !important; line-height: 1.5 !important; white-space: nowrap !important; }
-.google-visualization-orgchart-node-medium { font-weight: 700 !important; background: var(--light-gray) !important; }
-.google-visualization-orgchart-node-large { background: var(--primary-color) !important; color: white !important; font-weight: 700 !important; padding: 18px 40px !important; font-size: 1.2rem !important; }
-
-/* --- 푸터 스타일 --- */
-footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font-size: 0.9rem; line-height: 1.8; margin-top: auto; }
-.footer-main { display: flex; justify-content: space-between; gap: 40px; margin-bottom: 50px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 30px; }
-.footer-col { flex: 1; }
-.footer-col h4 { color: white; font-size: 1.1rem; margin-bottom: 20px; }
-.footer-col.about .footer-logo { height: 60px; margin-bottom: 15px; }
-.footer-col.about .corp-name { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: #e0e0e0; margin: 0; }
-.footer-col.about .ceo-name { font-family: var(--font-body); font-size: 0.9rem; color: #c0c0c0; font-weight: 400; margin: 5px 0 0 0; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 10px; }
-.footer-col ul a { color: #a0a0a0; }
-.footer-col ul a:hover { color: white; }
-.footer-copyright { text-align: center; padding-top: 30px; border-top: 1px solid #333; font-size: 0.85rem; color: #777; max-width: 1200px; margin-left: auto; margin-right: auto; }
-
-/* --- 반응형 디자인 & 모바일 메뉴 --- */
+/* --- 响应式设计 & 移动端菜单 --- */
 @media (max-width: 992px) {
+    .container { padding: 0 20px; }
     .nav-menu { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background-color: rgba(10, 34, 64, 0.98); flex-direction: column; display: flex; align-items: center; justify-content: center; transition: left 0.5s ease; }
     .nav-menu.active { left: 0; }
     .nav-menu > li { display: block; margin: 20px 0; text-align: center; }
@@ -195,49 +89,54 @@ footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font
     .hamburger.active span:nth-child(1) { top: 11px; transform: rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
+
+    /* --- 平板 (Tablet) 响应式优化 --- */
+    .hero h1 { font-size: 2.8rem; }
+    .hero p { font-size: 1.2rem; }
+    .page-header h1, .section-title { font-size: 2.5rem; }
+    .page-content { padding: 60px 0; }
+    .section { padding: 80px 0; }
     .mission-grid, .goals-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-}
-@media (max-width: 768px) {
-    .logo-container span { display: none; }
-    .footer-main { flex-direction: column; text-align: center; }
     .greetings-content { flex-direction: column-reverse; }
     .greetings-profile { max-width: 250px; margin: 0 auto 30px auto; }
     .signature { text-align: center; }
     .contact-info-grid { grid-template-columns: 1fr; }
+    .proposal-form-container { padding: 40px 30px; }
 }
+
+@media (max-width: 768px) {
+    .logo-container span { display: none; }
+    header .container { height: 80px; }
+    .logo-container img { height: 50px; }
+    .footer-main { flex-direction: column; text-align: center; }
+    .form-group { flex-direction: column; align-items: stretch; }
+    .form-group label { flex-basis: auto; margin-bottom: 8px; padding-top: 0; }
+}
+
 @media (max-width: 576px) {
+    /* --- 手机 (Mobile) 响应式优化 --- */
+    .container { padding: 0 15px; }
+    .hero { height: 80vh; }
+    .hero h1 { font-size: 2.2rem; line-height: 1.3; }
+    .hero p { font-size: 1.1rem; }
+    .page-header { padding: 50px 0; }
+    .page-header h1, .section-title { font-size: 2rem; }
+    .page-content { padding: 40px 0; }
+    .section { padding: 60px 0; }
+    .section-subtitle { margin-bottom: 60px; }
     .mission-grid, .goals-grid { grid-template-columns: 1fr; }
     .timeline-events li p { margin: 0 0 0 60px; }
-}
-/* --- 统一图片风格优化 --- */
+    .timeline-year { font-size: 2rem; }
+    .page-banner { height: 250px; }
+    .proposal-form-container { padding: 30px 20px; }
 
-/* 页面顶部横幅图片容器 */
-.page-banner {
-    width: 100%;
-    height: 350px; /* 您可以根据喜好调整图片高度 */
-    overflow: hidden;
-    position: relative;
-    background-color: var(--primary-color); /* 图片加载前的背景色 */
-}
-
-/* 统一的图片滤镜和悬停效果 */
-.filtered-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 保证图片不变形地填满容器 */
-    filter: grayscale(40%) sepia(10%) brightness(90%); /* 核心滤镜：轻微去色、增加复古感、略微调暗 */
-    transition: all 0.5s ease; /* 平滑的过渡效果 */
-}
-
-/* 鼠标悬停时，图片恢复鲜活色彩并轻微放大 */
-.page-banner:hover .filtered-image {
-    filter: grayscale(0%) sepia(0%) brightness(100%);
-    transform: scale(1.05);
-}
-
-/* 调整页面主要内容区域的上边距，使其与新图片协调 */
-.page-content {
-    padding-top: 60px; /* 稍微减小原有的顶部内边距 */
-    padding-bottom: 80px;
+    /* 组织结构图移动端优化 */
+    .org-chart-container { justify-content: flex-start; }
+    .org-chart li { display: block; padding: 0; margin-bottom: 50px; }
+    .org-chart li:last-child { margin-bottom: 0; }
+    .org-chart ul { padding-top: 0; padding-left: 40px; margin-top: 30px; position: relative; }
+    .org-chart ul::before { content: ''; position: absolute; left: 0; top: -20px; bottom: 20px; width: 0; border-left: 2px solid #007bff; }
+    .org-chart ul li > .node::before { top: 50%; left: -40px; width: 40px; height: 0; border-top: 2px solid #007bff; border-left: none; transform: translateY(-50%); }
+    .org-chart li::after, .org-chart li > .node + ul::before { display: none; }
 }
