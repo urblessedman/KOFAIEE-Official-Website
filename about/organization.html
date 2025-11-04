@@ -6,11 +6,21 @@
     <title>조직/조직도 - 한국국제교육교류우호협회</title>
     <meta name="description" content="한국국제교육교류우호협회의 조직 구성도입니다.">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../css/style.css?v=4.0"> <!-- Cache Busting -->
+    <link rel="stylesheet" href="../css/style.css?v=4.0"> <!-- 원본 CSS 파일 링크는 그대로 둡니다 -->
     <script src="../js/script.js" defer></script>
     
     <!-- Google Charts 라이브러리 로드 -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <!-- ### 핵심 수정 사항 ### -->
+    <!-- 조직도 스타일을 여기에 직접 추가하여 캐시 및 외부 파일 문제를 확실히 해결합니다. -->
+    <style>
+        .google-visualization-orgchart-node {
+            /* 이 스타일은 텍스트가 세로로 표시되는 것을 방지하고, 항상 가로로 표시되도록 강제합니다. */
+            white-space: nowrap !important;
+        }
+    </style>
+    
     <script type="text/javascript">
       google.charts.load('current', {packages:['orgchart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -34,7 +44,7 @@
           [{v:'lab2', f:'한중21'}, 'forum2']
         ]);
 
-        // 각 노드에 스타일 적용
+        // 각 노드에 배경색 등을 위한 클래스 적용
         data.setRowProperty(0, 'style', 'node-large');
         data.setRowProperty(1, 'style', 'node-medium');
         data.setRowProperty(2, 'style', 'node-medium');
@@ -43,9 +53,7 @@
 
         var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
         
-        // --- 수정된 부분 ---
-        // 'size' 옵션을 제거하여 차트가 노드 크기를 자동으로 조절하도록 합니다.
-        // 이렇게 하면 텍스트가 세로로 표시되는 대신 가로로 올바르게 표시됩니다.
+        // 'size' 옵션을 제거하여 차트가 CSS에 따라 크기를 자동으로 조절하도록 합니다.
         chart.draw(data, {allowHtml:true});
       }
     </script>
