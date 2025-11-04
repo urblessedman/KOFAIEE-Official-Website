@@ -110,8 +110,8 @@ header .container { display: flex; justify-content: space-between; align-items: 
     padding: 18px 40px !important;
     font-size: 1.2rem !important;
 }
-/* --- 이 부분이 최종 수정의 핵심입니다! --- */
-#chart_div table { margin: 0 auto; }
+/* --- 이 부분이 수정되었습니다 --- */
+/* #chart_div table { margin: 0 auto; } */ /* 이 라인을 삭제 또는 주석 처리했습니다 */
 
 /* --- 푸터 스타일 --- */
 footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font-size: 0.9rem; line-height: 1.8; margin-top: auto; }
