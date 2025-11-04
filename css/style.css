@@ -86,17 +86,22 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .goal-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
 
 
-/* --- 조직도 페이지 스타일 (최종 수정안) --- */
+/* --- 조직도 페이지 스타일 (跨浏览器兼容最终版) --- */
+/* 1. 图表容器：使用 text-align: center 来居中其内部的 inline-block 元素 */
 #chart_div {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    /* --- 아래 두 줄이 핵심 수정사항입니다 --- */
-    display: flex;
-    justify-content: center;
+    text-align: center; /* 替换 flexbox 的居中方法 */
 }
 
-/* 모든 노드의 기본 스타일 */
+/* 2. Google Chart 生成的表格：设为 inline-block 以便居中，并重置其内部的文本对齐 */
+#chart_div table {
+    display: inline-block; /* 使表格可以被 text-align: center 影响 */
+    text-align: left;    /* 确保表格内的文字不会继承 center 对齐 */
+}
+
+/* 所有节点的通用样式 */
 .google-visualization-orgchart-node {
     border: 1px solid var(--border-color) !important;
     border-radius: 8px !important;
@@ -111,18 +116,18 @@ header .container { display: flex; justify-content: space-between; align-items: 
     transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
 }
 
-/* 마우스 호버 시 효과 */
+/* 鼠标悬停效果 */
 .google-visualization-orgchart-node:hover {
     border-color: var(--accent-color) !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* 중간 레벨 노드 (배경색으로 구분) */
+/* 中级节点的样式 */
 .google-visualization-orgchart-node-medium {
     background-color: var(--light-gray) !important;
 }
 
-/* 최상위 레벨 노드 */
+/* 顶级节点的样式 */
 .google-visualization-orgchart-node-large {
     background-color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
@@ -132,7 +137,7 @@ header .container { display: flex; justify-content: space-between; align-items: 
     padding: 18px 40px !important;
 }
 
-/* 연결선 스타일 */
+/* 连接线的样式 */
 .google-visualization-orgchart-linebottom,
 .google-visualization-orgchart-lineleft,
 .google-visualization-orgchart-lineright {
