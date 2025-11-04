@@ -6,24 +6,20 @@
     <title>조직/조직도 - 한국국제교육교류우호협회</title>
     <meta name="description" content="한국국제교육교류우호협회의 조직 구성도입니다.">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../css/style.css?v=4.1"> <!-- Cache Busting -->
+    <link rel="stylesheet" href="../css/style.css?v=4.2"> <!-- Cache Busting -->
     <script src="../js/script.js" defer></script>
     
     <!-- Google Charts 라이브러리 로드 -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
-    <!-- ### 最终修复样式 ### -->
-    <!-- 这里的样式将解决所有布局问题 -->
+    <!-- 조직도 차트 레이아웃 문제를 해결하는 스타일 -->
     <style>
         #chart_div {
-            /* 1. 让图表容器的内容（图表本身）居中显示 */
-            text-align: center;
-            /* 2. 当图表宽度超出屏幕时，允许容器内部出现水平滚动条，防止破坏页面布局 */
-            overflow-x: auto;
+            text-align: center; /* 차트 자체를 컨테이너 안에서 가운데 정렬 */
+            overflow-x: auto;   /* 차트가 너무 넓을 경우 페이지를 깨뜨리지 않고 가로 스크롤 생성 */
         }
         .google-visualization-orgchart-node {
-            /* 强制文本不换行，保持横向布局 */
-            white-space: nowrap !important;
+            white-space: nowrap !important; /* 노드 안의 텍스트가 세로로 바뀌는 것을 방지 */
         }
     </style>
     
@@ -36,7 +32,6 @@
         data.addColumn('string', 'Name');
         data.addColumn('string', 'Manager');
 
-        // 조직도 데이터
         data.addRows([
           [{v:'root', f:'한국국제교육교류우호협회'}, ''],
           [{v:'advisory', f:'고문단'}, 'root'],
@@ -49,7 +44,6 @@
           [{v:'lab2', f:'한중21'}, 'forum2']
         ]);
 
-        // 각 노드에 스타일 적용
         data.setRowProperty(0, 'style', 'node-large');
         data.setRowProperty(1, 'style', 'node-medium');
         data.setRowProperty(2, 'style', 'node-medium');
@@ -87,13 +81,13 @@
             <div class="container">
                 <h2 class="section-title">협회 조직도</h2>
                 
-                <!-- Google Chart가 그려질 컨테이너 -->
                 <div id="chart_div"></div>
 
             </div>
         </div>
     </main>
     
+    <!-- ### 여기부터 수정된 푸터입니다 ### -->
     <footer>
         <div class="footer-main">
             <div class="footer-col about">
@@ -104,6 +98,7 @@
             <div class="footer-col">
                 <h4>바로가기</h4>
                 <ul>
+                    <!-- 경로가 현재 위치(about 폴더)에 맞게 수정되었습니다. -->
                     <li><a href="greetings.html">협회 소개</a></li>
                     <li><a href="../activities/strategy-forum.html">협회 사업</a></li>
                     <li><a href="../partners/fields.html">협회 협력</a></li>
@@ -123,6 +118,7 @@
             <p>Copyright 2024. KOREA INTERNATIONAL EDUCATION EXCHANGE AND FRIENDSHIP ASSOCIATION. All rights reserved.</p>
         </div>
     </footer>
+    <!-- ### 푸터 끝 ### -->
 
 </body>
 </html>
