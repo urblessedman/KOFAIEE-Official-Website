@@ -6,7 +6,7 @@
     <title>조직/조직도 - 한국국제교육교류우호협회</title>
     <meta name="description" content="한국국제교육교류우호협회의 조직 구성도입니다.">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../css/style.css?v=3.0"> <!-- Cache Busting -->
+    <link rel="stylesheet" href="../css/style.css?v=CSSGridFinal"> <!-- Cache Busting -->
     <script src="../js/script.js" defer></script>
 </head>
 <body>
@@ -36,24 +36,29 @@
                 <h2 class="section-title">협회 조직도</h2>
 
                 <div class="org-chart">
-                    <div class="org-top-levels">
-                        <div class="org-node root">한국국제교육교류우호협회</div>
-                        <div class="org-node">고문단</div>
+                    <div class="org-level">
+                        <div class="org-node root">
+                            <img src="../images/logo-footer.png" alt="KOFAIEE Logo">
+                            한국국제교육교류우호협회
+                        </div>
+                    </div>
+                    <div class="org-level">
+                        <div class="org-node advisory">고문단</div>
                     </div>
 
-                    <div class="org-main-branches">
+                    <div class="org-branches">
                         <!-- Branch 1 -->
-                        <div class="branch-group">
-                            <div class="org-node parent">국제전략포럼</div>
-                            <div class="branch-sub-nodes">
+                        <div class="org-branch">
+                            <div class="org-node">국제전략포럼</div>
+                            <div class="node-children">
                                 <div class="org-node">팩트체크센터</div>
                             </div>
                         </div>
 
                         <!-- Branch 2 -->
-                        <div class="branch-group">
-                            <div class="org-node parent">데이터경제포럼</div>
-                            <div class="branch-sub-nodes">
+                        <div class="org-branch">
+                            <div class="org-node">데이터경제포럼</div>
+                            <div class="node-children">
                                 <div class="node-pair">
                                     <div class="org-node">아시아데이터연구소</div>
                                     <div class="org-node">한중21</div>
@@ -62,9 +67,9 @@
                         </div>
 
                         <!-- Branch 3 -->
-                        <div class="branch-group">
-                            <div class="org-node parent">교육문화교류플랫폼</div>
-                            <div class="branch-sub-nodes">
+                        <div class="org-branch">
+                            <div class="org-node">교육문화교류플랫폼</div>
+                            <div class="node-children">
                                 <div class="org-node">교육문화교류지원</div>
                             </div>
                         </div>
