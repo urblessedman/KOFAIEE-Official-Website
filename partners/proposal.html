@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>협력제안 - 한국국제교육교류우호협회</title>
+    <meta name="description" content="한국국제교육교류우호협회와의 파트너십을 제안해주세요. 저희는 언제나 새로운 협력의 기회를 환영합니다.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+    <style>
+        /* 협력제안 페이지를 위한 추가 스타일 */
+        .proposal-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background-color: var(--background-color);
+        }
+        .form-intro-text {
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        .form-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            flex: 0 0 150px;
+            font-weight: 700;
+            padding-top: 10px;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+        .form-group .input-wrapper {
+            flex: 1;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        /* Custom File Input */
+        .file-upload-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .file-upload-wrapper .file-input {
+            display: none;
+        }
+        .file-upload-wrapper .file-label {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .file-upload-wrapper .file-label:hover {
+            background-color: #0056b3;
+        }
+        .file-upload-wrapper .file-name {
+            margin-left: 15px;
+            color: var(--text-light);
+        }
+        .file-note {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 10px;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 20px;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+         @media (max-width: 768px) {
+            .form-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .form-group label {
+                flex-basis: auto;
+                margin-bottom: 8px;
+                padding-top: 0;
+            }
+            .proposal-form-container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo-container"><img src="../images/logo-header.png" alt="KOFAIEE Logo"><span>한국국제교육교류우호협회</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../about/greetings.html">협회 소개</a><ul class="dropdown"><li><a href="../about/greetings.html">인사말</a></li><li><a href="../about/purpose.html">설립목적</a></li><li><a href="../about/organization.html">조직/조직도</a></li><li><a href="../about/history.html">협회연혁</a></li><li><a href="../about/location.html">오시는길</a></li></ul></li>
+                    <li><a href="../activities/strategy-forum.html">협회 사업</a><ul class="dropdown"><li><a href="../activities/strategy-forum.html">국제전략포럼</a></li><li><a href="../activities/data-forum.html">데이터경제포럼</a></li><li><a href="../activities/platform.html">교육문화교류플랫폼</a></li></ul></li>
+                    <li><a href="fields.html">협회 협력</a><ul class="dropdown"><li><a href="fields.html">협력분야</a></li><li><a href="institutions.html">협력기관</a></li><li><a href="proposal.html">협력제안</a></li></ul></li>
+                    <li><a href="../news/announcements.html">협회 소식</a><ul class="dropdown"><li><a href="../news/announcements.html">공지사항</a></li><li><a href="../news/news-list.html">뉴스</a></li></ul></li>
+                </ul>
+            </nav>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header"><h1>협력제안</h1></div>
+        <div class="page-content fade-in-section">
+            <div class="container">
+                <p class="form-intro-text">* 국제교육교류협회와의 협력을 희망하는 개인/단체/기관은 협력제안서를 제출해 주시기 바랍니다.</p>
+                <div class="proposal-form-container">
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">신청자명</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="name" name="name" placeholder="신청자명을 입력하세요." required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">회사/단체/기관명</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="organization" name="organization" placeholder="회사/단체/기관명을 입력하세요.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일주소</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="email" name="email" placeholder="이메일을 입력하세요." required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">연락처</label>
+                            <div class="input-wrapper">
+                                <input type="tel" id="phone" name="phone" placeholder="전화번호" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="proposal">제안내용</label>
+                            <div class="input-wrapper">
+                                <textarea id="proposal" name="proposal" placeholder="내용을 입력해주세요" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="attachment">첨부파일</label>
+                            <div class="input-wrapper">
+                                <div class="file-upload-wrapper">
+                                    <label for="attachment" class="file-label">파일 첨부</label>
+                                    <input type="file" id="attachment" name="attachment" class="file-input">
+                                    <span class="file-name">선택된 파일 없음</span>
+                                </div>
+                                <p class="file-note">※ 첨부파일 용량은 10M 이하 입니다.</p>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-button">제출하기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-main">
+            <div class="footer-col about"><img src="../images/logo-footer.png" alt="KOFAIEE Footer Logo" class="footer-logo"><p class="corp-name">사단법인 한국국제교육교류우호협회</p><p class="ceo-name">대표 : 강준영</p></div>
+            <div class="footer-col"><h4>바로가기</h4><ul><li><a href="../about/greetings.html">협회 소개</a></li><li><a href="../activities/strategy-forum.html">협회 사업</a></li><li><a href="fields.html">협회 협력</a></li><li><a href="../news/announcements.html">협회 소식</a></li></ul></div>
+            <div class="footer-col"><h4>연락 정보</h4><ul><li>서울특별시 중랑구 사가정로 41길 6 (면목동)</li><li>Tel: 02-6471-8602</li><li>외교부 인가 비영리 사단법인(제603호)</li></ul></div>
+        </div>
+        <div class="footer-copyright"><p>Copyright 2024. KOREA INTERNATIONAL EDUCATION EXCHANGE AND FRIENDSHIP ASSOCIATION. All rights reserved.</p></div>
+    </footer>
+    
+    <script>
+        // 파일 첨부 시 파일명 표시 스크립트
+        const fileInput = document.getElementById('attachment');
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                const fileNameSpan = document.querySelector('.file-name');
+                if (this.files.length > 0) {
+                    fileNameSpan.textContent = this.files[0].name;
+                } else {
+                    fileNameSpan.textContent = '선택된 파일 없음';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
