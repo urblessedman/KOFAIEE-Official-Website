@@ -85,12 +85,15 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .goal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 .goal-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
 
-/* --- 조직도 페이지 스타일 (Google Charts 최종 솔루션) --- */
+
+/* --- 조직도 페이지 스타일 (디자인 개선) --- */
 #chart_div { width: 100%; max-width: 900px; margin: 0 auto; }
+
+/* 모든 노드에 대한 기본 스타일: 그림자, 전환 효과 추가 */
 .google-visualization-orgchart-node {
-    border: 1px solid var(--border-color) !important;
+    border: 1px solid #e0e0e0 !important; /* 약간 더 부드러운 경계선 */
     border-radius: 8px !important;
-    box-shadow: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; /* 부드러운 그림자 효과 */
     background: white !important;
     font-family: var(--font-body) !important;
     padding: 15px 25px !important;
@@ -98,20 +101,40 @@ header .container { display: flex; justify-content: space-between; align-items: 
     color: var(--text-color) !important;
     line-height: 1.5 !important;
     white-space: nowrap !important;
+    transition: all 0.3s ease !important; /* 부드러운 전환 효과 */
 }
+
+/* 노드에 마우스를 올렸을 때 효과 */
+.google-visualization-orgchart-node:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important; /* 그림자 강조 */
+    border-color: var(--accent-color) !important; /* 강조 색상 경계선 */
+}
+
+/* 중간 레벨 노드 스타일: 왼쪽 테두리로 계층 구분 */
 .google-visualization-orgchart-node-medium {
     font-weight: 700 !important;
-    background: var(--light-gray) !important;
+    background: #fafafa !important; /* 기본 흰색과 약간 다른 배경 */
+    border-left: 4px solid var(--accent-color) !important; /* 왼쪽 강조 테두리 */
 }
+
+/* 최상위 노드 스타일 */
 .google-visualization-orgchart-node-large {
     background: var(--primary-color) !important;
     color: white !important;
     font-weight: 700 !important;
     padding: 18px 40px !important;
     font-size: 1.2rem !important;
+    border-color: var(--primary-color) !important;
 }
-/* --- 이 부분이 수정되었습니다 --- */
-/* #chart_div table { margin: 0 auto; } */ /* 이 라인을 삭제 또는 주석 처리했습니다 */
+
+/* 연결선 스타일: 부드러운 회색으로 변경 */
+.google-visualization-orgchart-linebottom,
+.google-visualization-orgchart-lineleft,
+.google-visualization-orgchart-lineright {
+    border-color: #cccccc !important; /* 더 연한 회색으로 변경 */
+}
+
 
 /* --- 푸터 스타일 --- */
 footer { background-color: #1c1c1c; color: #a0a0a0; padding: 60px 0 30px 0; font-size: 0.9rem; line-height: 1.8; margin-top: auto; }
