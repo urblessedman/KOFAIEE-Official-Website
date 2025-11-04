@@ -6,7 +6,7 @@
     <title>오시는길 - 한국국제교육교류우호협회</title>
     <meta name="description" content="한국국제교육교류우호협회에 오시는 길을 안내합니다.">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../css/style.css?v=location-page"> <!-- 新版本号! -->
+    <link rel="stylesheet" href="../css/style.css?v=location-page-v2"> <!-- 新版本号! -->
     <script src="../js/script.js" defer></script>
 </head>
 <body>
@@ -34,10 +34,10 @@
         <div class="page-content fade-in-section">
             <div class="container">
                 
-                <!-- Google Maps Embed -->
+                <!-- Google Maps Embed (Korean Language) -->
                 <div class="map-container">
                     <iframe 
-                        src="https://maps.google.com/maps?q=6%20Sagajeong-ro%2041-gil,%20Jungnang-gu,%20Seoul&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        src="https://maps.google.com/maps?q=6%20Sagajeong-ro%2041-gil,%20Jungnang-gu,%20Seoul&t=&z=16&ie=UTF8&iwloc=&output=embed&hl=ko" 
                         width="100%" 
                         height="450" 
                         style="border:0;" 
@@ -66,7 +66,33 @@
                         <p>02-6471-8602</p>
                     </div>
                 </div>
-
+                
+                <!-- Public Transportation Guide -->
+                <div class="transport-guide">
+                    <h3>대중교통 안내</h3>
+                    <div class="transport-item">
+                        <div class="transport-icon subway">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.81 2.43a1 1 0 0 0-1.04-.21l-3.34.96.48 1.67 2.31-.67.43 1.49-3.13.9-1.3-4.51-1.68.48 1.3 4.51-2.03.59-.48-1.67-2.91.84a1 1 0 0 0-.6 1.3l5.35 18.63a1 1 0 0 0 1.3.6l2.91-.84.48-1.67-2.31.67-.93-3.24 3.14-.9.93 3.24 1.68-.48-.93-3.24 2.03-.59.48 1.67 2.91-.84a1 1 0 0 0 .6-1.3L18.85 2.64a1 1 0 0 0-1.04-.21zM8.28 19.34l-3.9-13.6 1.68-.48 3.9 13.6zm5.88-1.7l-3.9-13.6 1.68-.48 3.9 13.6z"/></svg>
+                        </div>
+                        <div class="transport-details">
+                            <h4>지하철</h4>
+                            <p><strong>7호선 사가정역</strong> 2번 출구에서 도보 10분</p>
+                        </div>
+                    </div>
+                    <div class="transport-item">
+                        <div class="transport-icon bus">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 1c-2.76 0-5 2.24-5 5v1H8c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h1c0 1.66 1.34 3 3 3s3-1.34 3-3h3c0 1.66 1.34 3 3 3s3-1.34 3-3h1c.55 0 1-.45 1-1v-4l-3-4H18V1zm-3 2h2v3h-2V3zM8 12h11.5l1.5 2H8v-2zm4.5 6c-.83 0-1.5-.67-1.5-1.5S11.67 15 12.5 15s1.5.67 1.5 1.5S13.33 18 12.5 18zm5.5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                        </div>
+                        <div class="transport-details">
+                            <h4>버스</h4>
+                            <p><strong>면목두산아파트2차 정류장</strong> (정류장 번호: 07255) 하차 후 도보 3분<br>
+                            간선: 271, 240, 262, N62<br>
+                            지선: 2012, 2227, 2230
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </main>
