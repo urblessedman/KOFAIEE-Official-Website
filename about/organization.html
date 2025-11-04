@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>조직/조직도 - 한국국제교육교류우호협회</title>
     <meta name="description" content="한국국제교육교류우호협회의 조직 구성도입니다.">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="manifest" href="../site.webmanifest">
@@ -22,7 +22,6 @@
 
         // 조직도 데이터
         data.addRows([
-          // [{v:'id', f:'표시될 텍스트'}, '부모id'],
           [{v:'root', f:'한국국제교육교류우호협회'}, ''],
           [{v:'advisory', f:'고문단'}, 'root'],
           [{v:'forum1', f:'국제전략포럼'}, 'advisory'],
@@ -76,11 +75,8 @@
 
         <div class="page-content fade-in-section">
             <div class="container">
-                
-                
                 <!-- Google Chart가 그려질 컨테이너 -->
                 <div id="chart_div"></div>
-
             </div>
         </div>
     </main>
